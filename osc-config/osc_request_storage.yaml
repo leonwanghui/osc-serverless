@@ -1,0 +1,16 @@
+kind: StorageResource
+metadata:
+  cloud_provider:
+    name: huaweicloud
+  labels:
+    app: mysql
+spec:
+  name: newvolume
+  description: This is a new volume for testing
+  availability_zone: cn-north-1a # 华北-北京一
+  cloud_provider: # Deprecated, please use metadata
+    name: huaweicloud
+  size: 10
+  block_volume_request_fragment:
+    volume_type: SAS
+    count: 1

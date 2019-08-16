@@ -1,0 +1,19 @@
+kind: NetworkResource
+metadata:
+  cloud_provider:
+    name: huaweicloud
+  labels:
+    app: mysql
+spec:
+  name: newpublicip
+  description: This is a new publicip for testing
+  cloud_provider: # Deprecated, please use metadata
+    name: huaweicloud
+  publicip_request_fragment:
+    publicip:
+      type: 5_bgp
+      # ip_address: 192.168.0.2
+    bandwidth:
+      name: newbandwidth
+      sharetype: PER
+      size: 1

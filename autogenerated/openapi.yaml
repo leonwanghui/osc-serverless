@@ -1,0 +1,864 @@
+openapi: "3.0.0"
+info:
+  title: Open Service Cloud API
+  description: Open Service Cloud API to manage different backend cloud services.
+  termsOfService: https://www.linuxfoundation.org/terms
+  contact:
+    name: Open Service Cloud Author
+    url: https://github.com/leonwanghui
+    email: wanghui71leon@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.0.3
+
+servers:
+  - url: http://localhost:6106
+    description: OSC Manager Endpoint
+
+paths:
+  /v1alpha/compute_resources:
+    post:
+      summary: create a new compute resource.
+      tags:
+        - Compute
+      operationId: compute_resource.create
+      requestBody:
+        description: parameters for the requested compute resource.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComputeResourceCreateRequest'
+      responses:
+        '201':
+          description: 201 Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComputeResourceSpec'
+        '202':
+          description: 202 Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        '400':
+          $ref: '#/components/responses/ErrorBadRequest'
+        '500':
+          $ref: '#/components/responses/ErrorInternalServer'
+
+  /v1alpha/compute_resources/{cr_id}:
+    parameters:
+      - name: cr_id
+        in: path
+        description: uuid of compute resource created.
+        required: true
+        schema:
+          type: string
+    delete:
+      summary: remove specified compute resource.
+      tags:
+        - Compute
+      operationId: compute_resource.delete
+      parameters:
+        - $ref: '#/components/parameters/cloud_provider'
+        - $ref: '#/components/parameters/delete_publicip'
+        - $ref: '#/components/parameters/delete_volume'
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        '202':
+          description: 202 Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        '400':
+          $ref: '#/components/responses/ErrorBadRequest'
+        '500':
+          $ref: '#/components/responses/ErrorInternalServer'
+    get:
+      summary: get the information of compute resource.
+      tags:
+        - Compute
+      operationId: compute_resource.get
+      parameters:
+        - $ref: '#/components/parameters/cloud_provider'
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComputeResourceSpec'
+        '404':
+          $ref: '#/components/responses/ErrorNotFound'
+        '500':
+          $ref: '#/components/responses/ErrorInternalServer'
+
+  /v1alpha/storage_resources:
+    post:
+      summary: create a new storage resource.
+      tags:
+        - Storage
+      operationId: storage_resource.create
+      requestBody:
+        description: parameters for the requested storage resource.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorageResourceCreateRequest'
+      responses:
+        '201':
+          description: 201 Created
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/StorageResourceSpec'
+        '202':
+          description: 202 Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        '400':
+          $ref: '#/components/responses/ErrorBadRequest'
+        '500':
+          $ref: '#/components/responses/ErrorInternalServer'
+
+  /v1alpha/storage_resources/{sr_id}:
+    parameters:
+      - name: sr_id
+        in: path
+        description: uuid of storage resource created
+        required: true
+        schema:
+          type: string
+    delete:
+      summary: remove specified storage resource.
+      tags:
+        - Storage
+      operationId: storage_resource.delete
+      parameters:
+        - $ref: '#/components/parameters/cloud_provider'
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        '202':
+          description: 202 Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        '400':
+          $ref: '#/components/responses/ErrorBadRequest'
+        '500':
+          $ref: '#/components/responses/ErrorInternalServer'
+    get:
+      summary: get the information of storage resource.
+      tags:
+        - Storage
+      operationId: storage_resource.get
+      parameters:
+        - $ref: '#/components/parameters/cloud_provider'
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageResourceSpec'
+        '404':
+          $ref: '#/components/responses/ErrorNotFound'
+        '500':
+          $ref: '#/components/responses/ErrorInternalServer'
+
+  /v1alpha/network_resources:
+    post:
+      summary: create a new network resource.
+      tags:
+        - Network
+      operationId: network_resource.create
+      requestBody:
+        description: parameters for the requested network resource.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NetworkResourceCreateRequest'
+      responses:
+        '201':
+          description: 201 Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NetworkResourceSpec'
+        '202':
+          description: 202 Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        '400':
+          $ref: '#/components/responses/ErrorBadRequest'
+        '500':
+          $ref: '#/components/responses/ErrorInternalServer'
+
+  /v1alpha/network_resources/{nr_id}:
+    parameters:
+      - name: nr_id
+        in: path
+        description: uuid of network resource created
+        required: true
+        schema:
+          type: string
+    delete:
+      summary: remove specified network resource.
+      tags:
+        - Network
+      operationId: network_resource.delete
+      parameters:
+        - $ref: '#/components/parameters/cloud_provider'
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        '202':
+          description: 202 Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+        '400':
+          $ref: '#/components/responses/ErrorBadRequest'
+        '500':
+          $ref: '#/components/responses/ErrorInternalServer'
+    get:
+      summary: get the information of network resource.
+      tags:
+        - Network
+      operationId: network_resource.get
+      parameters:
+        - $ref: '#/components/parameters/cloud_provider'
+      responses:
+        '200':
+          description: 200 OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NetworkResourceSpec'
+        '404':
+          $ref: '#/components/responses/ErrorNotFound'
+        '500':
+          $ref: '#/components/responses/ErrorInternalServer'
+
+components:
+  schemas:
+    ComputeResourceCreateRequest:
+      type: object
+      required:
+        - cloud_provider
+        - name
+        - availability_zone
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        availability_zone:
+          type: string
+        cloud_provider:
+          $ref: '#/components/schemas/CloudProviderInfo'
+        cloud_server_request_fragment:
+          $ref: '#/components/schemas/CloudServerRequestFragment'
+        physical_server_request_fragment:
+          $ref: '#/components/schemas/CloudServerRequestFragment'
+        pod_request_fragment:
+          $ref: '#/components/schemas/PodRequestFragment'
+    CloudServerRequestFragment:
+      type: object
+      required:
+        - imageRef
+        - flavorRef
+        - vpcid
+        - nics
+        - root_volume
+      properties:
+        imageRef:
+          type: string
+        flavorRef:
+          type: string
+        user_data:
+          type: string
+        adminPass:
+          type: string
+        key_name:
+          type: string
+        vpcid:
+          type: string
+        nics:
+          type: array
+          items:
+            type: object
+            required:
+              - subnet_id
+            properties:
+              subnet_id:
+                type: string
+        ip_address:
+          type: string
+        publicip:
+          type: object
+          properties:
+            id:
+              type: string
+            eip:
+              type: object
+              required:
+                - ip_type
+                - bandwidth
+              properties:
+                ip_type:
+                  type: string
+                  enum:
+                    - 5_bgp
+                    - 5_sbgp
+                bandwidth:
+                  $ref: '#/components/schemas/BandwidthResource'
+        count:
+          type: integer
+          default: 1
+        isAutoRename:
+          type: boolean
+          default: true
+        root_volume:
+          type: object
+          required:
+            - volumetype
+          properties:
+            volumetype:
+              type: string
+            size:
+              type: integer
+              default: 1
+        security_groups:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: string
+        metadata:
+          type: object
+    PodRequestFragment:
+      type: object
+
+    ComputeResourceSpec:
+      description: >-
+        Detailed info that indicates the type of backend cloud storage services.
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        cloud_provider:
+          $ref: '#/components/schemas/CloudProviderInfo'
+        cloud_server_fragment:
+          $ref: '#/components/schemas/CloudServerResourceFragment'
+        physical_server_fragment:
+          $ref: '#/components/schemas/CloudServerResourceFragment'
+        pod_fragment:
+          $ref: '#/components/schemas/PodResourceFragment'
+    CloudServerResourceFragment:
+      type: object
+      properties:
+        hostId:
+          type: string
+        key_name:
+          type: string
+        OS-EXT-STS:vm_state:
+          type: string
+        addresses:
+          $ref: '#/components/schemas/Object'
+        flavor:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            disk:
+              type: string
+            vcpus:
+              type: string
+            ram:
+              type: string
+        OS-EXT-AZ:availability_zone:
+          type: string
+        accessIPv4:
+          type: string
+        metadata:
+          type: object
+        os-extended-volumes:volumes_attached:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              delete_on_termination:
+                type: string
+                enum:
+                  - true
+                  - false
+              boolIndex:
+                type: string
+                enum:
+                  - 0
+                  - -1
+              device:
+                type: string
+        OS-EXT-SRV-ATTR:hostname:
+          type: string
+    PodResourceFragment:
+      type: object
+    StorageResourceCreateRequest:
+      type: object
+      required:
+        - cloud_provider
+        - name
+        - availability_zone
+        - size
+      properties:
+        cloud_provider:
+          $ref: '#/components/schemas/CloudProviderInfo'
+        availability_zone:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        size:
+          type: integer
+        block_volume_request_fragment:
+          $ref: '#/components/schemas/BlockVolumeRequestFragment'
+        file_share_request_fragment:
+          $ref: '#/components/schemas/FileShareRequestFragment'
+        backup_request_fragment:
+          $ref: '#/components/schemas/BackupRequestFragment'
+    BlockVolumeRequestFragment:
+      type: object
+      required:
+        - volume_type
+      properties:
+        imageRef:
+          type: string
+        volume_type:
+          type: string
+          enum:
+            - SSD
+            - SAS
+            - SATA
+        count:
+          type: integer
+          default: 1
+        sharable:
+          type: string
+          enum:
+            - true
+            - false
+        metadata:
+          type: object
+        multiattach:
+          type: boolean
+    FileShareRequestFragment:
+      type: object
+      required:
+        - share_proto
+      properties:
+        share_proto:
+          type: string
+        share_type:
+          type: string
+        metadata:
+          type: object
+        share_network_id:
+          type: string
+    BackupRequestFragment:
+      type: object
+      required:
+        - volume_id
+        - snapshot_id
+      properties:
+        volume_id:
+          type: string
+        snapshot_id:
+          type: string
+
+    StorageResourceSpec:
+      description: >-
+        Detailed info that indicates the type of backend cloud storage services.
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        cloud_provider:
+          $ref: '#/components/schemas/CloudProviderInfo'
+        status:
+          type: string
+        availability_zone:
+          type: string
+        size:
+          type: integer
+        block_volume_fragment:
+          $ref: '#/components/schemas/BlockVolumeResourceFragment'
+        file_share_fragment:
+          $ref: '#/components/schemas/FileShareResourceFragment'
+        backup_fragment:
+          $ref: '#/components/schemas/BackupResourceFragment'
+    BlockVolumeResourceFragment:
+      type: object
+      properties:
+        volume_type:
+          type: string
+        metadata:
+          type: object
+        os-vol-host-attr:host:
+          type: string
+        multiattach:
+          type: boolean
+        dedicated_storage_id:
+          type: string
+        dedicated_storage_name:
+          type: string
+        tags:
+          type: object
+        attachments:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              server_id:
+                type: string
+              volume_id:
+                type: string
+              attachment_id:
+                type: string
+              device:
+                type: string
+              host_name:
+                type: string
+    FileShareResourceFragment:
+      type: object
+      properties:
+        share_server_id:
+          type: string
+        share_network_id:
+          type: string
+        metadata:
+          type: object
+        host:
+          type: string
+        share_proto:
+          type: string
+        share_type_name:
+          type: string
+        share_type:
+          type: string
+        export_locations:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              share_instance_id:
+                type: string
+              path:
+                type: string
+              preferred:
+                type: boolean
+    BackupResourceFragment:
+      type: object
+      properties:
+        volume_id:
+          type: string
+        container:
+          type: string
+        service_metadata:
+          type: string
+        snapshot_id:
+          type: string
+        is_incremental:
+          type: boolean
+
+    NetworkResourceCreateRequest:
+      type: object
+      required:
+        - cloud_provider
+        - name
+      properties:
+        cloud_provider:
+          $ref: '#/components/schemas/CloudProviderInfo'
+        name:
+          type: string
+        description:
+          type: string
+        vpc_request_fragment:
+          $ref: '#/components/schemas/SubnetRequestFragment'
+        subnet_request_fragment:
+          $ref: '#/components/schemas/SubnetRequestFragment'
+        publicip_request_fragment:
+          $ref: '#/components/schemas/PublicipRequestFragment'
+    VPCRequestFragment:
+      type: object
+      properties:
+        name:
+          type: string
+        cidr:
+          type: string
+    SubnetRequestFragment:
+      type: object
+      required:
+        - name
+        - cidr
+        - gateway_ip
+        - vpc_id
+      properties:
+        name:
+          type: string
+        cidr:
+          type: string
+        gateway_ip:
+          type: string
+        vpc_id:
+          type: string
+        dhcp_enable:
+          type: boolean
+          default: true
+        primary_dns:
+          type: string
+        availability_zone:
+          type: string
+    PublicipRequestFragment:
+      type: object
+      required:
+        - publicip
+        - bandwidth
+      properties:
+        publicip:
+          type: object
+          required:
+            - type
+          properties:
+            type:
+              type: string
+            ip_address:
+              type: string
+        bandwidth:
+          $ref: '#/components/schemas/BandwidthResource'
+
+    NetworkResourceSpec:
+      description: >-
+        Detailed info that indicates the type of backend cloud network services.
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+        cloud_provider:
+          $ref: '#/components/schemas/CloudProviderInfo'
+        vpc_fragment:
+          $ref: '#/components/schemas/VPCResourceFragment'
+        subnet_fragment:
+          $ref: '#/components/schemas/SubnetResourceFragment'
+        publicip_fragment:
+          $ref: '#/components/schemas/PublicipResourceFragment'
+    VPCResourceFragment:
+      type: object
+      properties:
+        cidr:
+          type: string
+        routes:
+          type: array
+          items:
+            type: object
+            properties:
+              destination:
+                type: string
+              nexthop:
+                type: string
+    SubnetResourceFragment:
+      type: object
+      properties:
+        cidr:
+          type: string
+        gateway_ip:
+          type: string
+        vpc_id:
+          type: string
+        dhcp_enable:
+          type: boolean
+        primary_dns:
+          type: string
+        availability_zone:
+          type: string
+    PublicipResourceFragment:
+      type: object
+      properties:
+        profile:
+          type: object
+        type:
+          type: string
+        public_ip_address:
+          type: string
+        private_ip_address:
+          type: string
+        port_id:
+          type: string
+        create_time:
+          type: string
+          format: date-time
+        bandwidth_id:
+          type: string
+        bandwidth_share_type:
+          type: string
+        bandwidth_size:
+          type: integer
+        bandwidth_name:
+          type: string
+
+    ErrorSpec:
+      description: >-
+        Detailed HTTP error response, which consists of a HTTP status code, and a
+        custom error message unique for each failure case.
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+
+    Object:
+      type: object
+
+    CloudProviderInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          enum:
+            - huaweicloud
+        parameters:
+          type: object
+
+    BandwidthResource:
+      type: object
+      required:
+        - sharetype
+      properties:
+        name:
+          type: string
+        sharetype:
+          type: string
+          enum:
+            - PER
+            - WHOLE
+        size:
+          type: integer
+          default: 1
+
+  responses:
+    ErrorBadRequest:
+      description: 400 BadRequest
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorSpec'
+    ErrorNotFound:
+      description: 404 NotFound
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorSpec'
+    ErrorInternalServer:
+      description: 500 InternalServer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorSpec'
+
+  parameters:
+    cloud_provider:
+      name: cloud_provider
+      in: query
+      description: cloud provider name
+      required: true
+      schema:
+        type: string
+        enum:
+          - huaweicloud
+    delete_publicip:
+      name: delete_publicip
+      in: query
+      description: check if to delete public ip
+      schema:
+        type: boolean
+    delete_volume:
+      name: delete_volume
+      in: query
+      description: check if to delete related volume
+      schema:
+        type: boolean
+
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+
+security:
+  - basicAuth: []

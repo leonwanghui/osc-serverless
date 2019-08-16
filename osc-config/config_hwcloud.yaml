@@ -1,0 +1,7 @@
+identityEndpoint: https://iam.cn-north-1.myhuaweicloud.com
+domain: myhuaweicloud.com
+region: cn-north-1
+projectID: 05203214f40025ad2f46c00469ce37b4 # cn-north-1
+domainID: your domain id
+accessKey: your AK string
+secretKey: your SK string

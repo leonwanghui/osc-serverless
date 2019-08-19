@@ -103,7 +103,7 @@ cp -r osc-config/ /etc/
 ### Run service
 ```shell
 # build the source code
-cd osc-poc/ && make
+cd osc-serverless/ && make
 # run osc-manager service
 ./build/bin/osc-mgr
 

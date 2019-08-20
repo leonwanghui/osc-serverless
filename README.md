@@ -23,6 +23,11 @@ This project should be considered **experimental** at the very early stage, all 
 ## Deployment tutorial
 Please notice that currently this project is only tested on Ubuntu system, so `Ubuntu 16.04+` should be prepared as the testing environment.
 
+### Install system packages
+```shell
+sudo apt-get update && sudo apt-get install -y build-essential gcc libssl-dev pkg-config
+```
+
 ### Install Golang (v1.12.1)
 ```shell
 wget https://storage.googleapis.com/golang/go1.12.1.linux-amd64.tar.gz

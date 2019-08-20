@@ -11,6 +11,10 @@ High level architecture of the OSC prototype system:
 
 <img src="architecture.JPG" alt="architecture" width="500"/>
 
+In the short future, the architecture would eventually be designed as below:
+
+<img src="future.JPG" alt="future" width="500"/>
+
 ## Project status
 This project should be considered **experimental** at the very early stage, all rich features are under active development. Here is the current feature support matrix:
 
@@ -25,7 +29,7 @@ Please notice that currently this project is only tested on Ubuntu system, so `U
 
 ### Install system packages
 ```shell
-sudo apt-get update && sudo apt-get install -y build-essential gcc libssl-dev pkg-config
+sudo apt-get update && sudo apt-get install -y build-essential gcc cmake libssl-dev pkg-config
 ```
 
 ### Install Golang (v1.12.1)

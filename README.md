@@ -30,6 +30,7 @@ Please notice that currently this project is only tested on Ubuntu system, so `U
 ### Install system packages
 ```shell
 sudo apt-get update && sudo apt-get install -y build-essential gcc cmake libssl-dev pkg-config
+sudo apt-get install -y zip tree
 ```
 
 ### Install Golang (v1.12.1)

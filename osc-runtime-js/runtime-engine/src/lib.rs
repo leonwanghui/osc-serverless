@@ -5,11 +5,11 @@ use serde_json::value::Value;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsValue;
 
-#[wasm_bindgen]
-extern "C" {
-    #[wasm_bindgen(js_namespace = console)]
-    fn log(s: &str);
-}
+// #[wasm_bindgen]
+// extern "C" {
+//     #[wasm_bindgen(js_namespace = console)]
+//     fn log(s: &str);
+// }
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct ResourceSpec {

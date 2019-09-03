@@ -1,0 +1,15 @@
+{
+  "name": "runtime-engine",
+  "collaborators": [
+    "leonwanghui <wanghui71leon@gmail.com>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "runtime_engine_bg.wasm",
+    "runtime_engine.js",
+    "runtime_engine.d.ts"
+  ],
+  "module": "runtime_engine.js",
+  "types": "runtime_engine.d.ts",
+  "sideEffects": "false"
+}

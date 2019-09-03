@@ -11,7 +11,6 @@
 package openapi
 
 type FileShareResourceFragmentExportLocations struct {
-
 	Id string `json:"id,omitempty"`
 
 	ShareInstanceId string `json:"share_instance_id,omitempty"`

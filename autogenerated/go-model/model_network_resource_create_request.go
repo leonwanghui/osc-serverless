@@ -11,7 +11,6 @@
 package openapi
 
 type NetworkResourceCreateRequest struct {
-
 	CloudProvider CloudProviderInfo `json:"cloud_provider"`
 
 	Name string `json:"name"`

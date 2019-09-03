@@ -16,7 +16,6 @@ import (
 
 // ComputeResourceSpec - Detailed info that indicates the type of backend cloud storage services.
 type ComputeResourceSpec struct {
-
 	Id string `json:"id,omitempty"`
 
 	Name string `json:"name,omitempty"`

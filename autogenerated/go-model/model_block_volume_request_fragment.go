@@ -11,7 +11,6 @@
 package openapi
 
 type BlockVolumeRequestFragment struct {
-
 	ImageRef string `json:"imageRef,omitempty"`
 
 	VolumeType string `json:"volume_type"`

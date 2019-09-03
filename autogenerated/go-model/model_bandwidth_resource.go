@@ -11,7 +11,6 @@
 package openapi
 
 type BandwidthResource struct {
-
 	Name string `json:"name,omitempty"`
 
 	Sharetype string `json:"sharetype"`

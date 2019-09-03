@@ -11,7 +11,6 @@
 package openapi
 
 type SubnetRequestFragment struct {
-
 	Name string `json:"name"`
 
 	Cidr string `json:"cidr"`

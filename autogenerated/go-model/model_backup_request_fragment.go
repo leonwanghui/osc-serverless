@@ -11,7 +11,6 @@
 package openapi
 
 type BackupRequestFragment struct {
-
 	VolumeId string `json:"volume_id"`
 
 	SnapshotId string `json:"snapshot_id"`

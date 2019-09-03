@@ -11,7 +11,6 @@
 package openapi
 
 type ComputeResourceCreateRequest struct {
-
 	Name string `json:"name"`
 
 	Description string `json:"description,omitempty"`

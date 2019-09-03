@@ -11,7 +11,6 @@
 package openapi
 
 type VpcRequestFragment struct {
-
 	Name string `json:"name,omitempty"`
 
 	Cidr string `json:"cidr,omitempty"`

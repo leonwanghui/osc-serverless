@@ -11,7 +11,6 @@
 package openapi
 
 type BlockVolumeResourceFragmentAttachments struct {
-
 	Id string `json:"id,omitempty"`
 
 	ServerId string `json:"server_id,omitempty"`

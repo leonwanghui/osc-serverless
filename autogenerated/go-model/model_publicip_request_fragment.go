@@ -11,7 +11,6 @@
 package openapi
 
 type PublicipRequestFragment struct {
-
 	Publicip PublicipRequestFragmentPublicip `json:"publicip"`
 
 	Bandwidth BandwidthResource `json:"bandwidth"`

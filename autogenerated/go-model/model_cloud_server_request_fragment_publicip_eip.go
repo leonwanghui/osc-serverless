@@ -11,7 +11,6 @@
 package openapi
 
 type CloudServerRequestFragmentPublicipEip struct {
-
 	IpType string `json:"ip_type"`
 
 	Bandwidth BandwidthResource `json:"bandwidth"`

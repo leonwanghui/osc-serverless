@@ -11,6 +11,5 @@
 package openapi
 
 type CloudServerRequestFragmentNics struct {
-
 	SubnetId string `json:"subnet_id"`
 }

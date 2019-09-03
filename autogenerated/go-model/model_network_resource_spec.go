@@ -12,7 +12,6 @@ package openapi
 
 // NetworkResourceSpec - Detailed info that indicates the type of backend cloud network services.
 type NetworkResourceSpec struct {
-
 	Id string `json:"id,omitempty"`
 
 	Name string `json:"name,omitempty"`

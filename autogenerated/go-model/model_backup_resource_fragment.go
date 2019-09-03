@@ -11,7 +11,6 @@
 package openapi
 
 type BackupResourceFragment struct {
-
 	VolumeId string `json:"volume_id,omitempty"`
 
 	Container string `json:"container,omitempty"`

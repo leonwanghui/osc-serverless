@@ -11,7 +11,6 @@
 package openapi
 
 type CloudServerRequestFragmentPublicip struct {
-
 	Id string `json:"id,omitempty"`
 
 	Eip CloudServerRequestFragmentPublicipEip `json:"eip,omitempty"`

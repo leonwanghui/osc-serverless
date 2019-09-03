@@ -11,7 +11,6 @@
 package openapi
 
 type SubnetResourceFragment struct {
-
 	Cidr string `json:"cidr,omitempty"`
 
 	GatewayIp string `json:"gateway_ip,omitempty"`

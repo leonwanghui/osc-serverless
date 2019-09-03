@@ -11,6 +11,5 @@
 package openapi
 
 type CloudServerRequestFragmentSecurityGroups struct {
-
 	Id string `json:"id"`
 }

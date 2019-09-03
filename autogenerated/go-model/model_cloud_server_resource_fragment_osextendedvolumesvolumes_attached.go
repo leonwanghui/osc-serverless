@@ -11,7 +11,6 @@
 package openapi
 
 type CloudServerResourceFragmentOsextendedvolumesvolumesAttached struct {
-
 	Id string `json:"id,omitempty"`
 
 	DeleteOnTermination string `json:"delete_on_termination,omitempty"`

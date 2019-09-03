@@ -15,7 +15,6 @@ import (
 )
 
 type PublicipResourceFragment struct {
-
 	Profile map[string]interface{} `json:"profile,omitempty"`
 
 	Type string `json:"type,omitempty"`

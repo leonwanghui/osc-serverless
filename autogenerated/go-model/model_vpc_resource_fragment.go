@@ -11,7 +11,6 @@
 package openapi
 
 type VpcResourceFragment struct {
-
 	Cidr string `json:"cidr,omitempty"`
 
 	Routes []VpcResourceFragmentRoutes `json:"routes,omitempty"`

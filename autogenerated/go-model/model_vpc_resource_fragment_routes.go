@@ -11,7 +11,6 @@
 package openapi
 
 type VpcResourceFragmentRoutes struct {
-
 	Destination string `json:"destination,omitempty"`
 
 	Nexthop string `json:"nexthop,omitempty"`

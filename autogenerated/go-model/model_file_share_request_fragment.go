@@ -11,7 +11,6 @@
 package openapi
 
 type FileShareRequestFragment struct {
-
 	ShareProto string `json:"share_proto"`
 
 	ShareType string `json:"share_type,omitempty"`

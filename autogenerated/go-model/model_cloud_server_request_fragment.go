@@ -11,7 +11,6 @@
 package openapi
 
 type CloudServerRequestFragment struct {
-
 	ImageRef string `json:"imageRef"`
 
 	FlavorRef string `json:"flavorRef"`

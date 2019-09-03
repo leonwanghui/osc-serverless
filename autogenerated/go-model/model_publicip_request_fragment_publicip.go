@@ -11,7 +11,6 @@
 package openapi
 
 type PublicipRequestFragmentPublicip struct {
-
 	Type string `json:"type"`
 
 	IpAddress string `json:"ip_address,omitempty"`

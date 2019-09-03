@@ -11,7 +11,6 @@
 package openapi
 
 type BlockVolumeResourceFragment struct {
-
 	VolumeType string `json:"volume_type,omitempty"`
 
 	Metadata map[string]interface{} `json:"metadata,omitempty"`

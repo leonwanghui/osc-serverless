@@ -12,7 +12,6 @@ package openapi
 
 // ErrorSpec - Detailed HTTP error response, which consists of a HTTP status code, and a custom error message unique for each failure case.
 type ErrorSpec struct {
-
 	Code int32 `json:"code"`
 
 	Message string `json:"message"`

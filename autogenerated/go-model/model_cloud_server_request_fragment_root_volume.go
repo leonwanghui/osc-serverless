@@ -11,7 +11,6 @@
 package openapi
 
 type CloudServerRequestFragmentRootVolume struct {
-
 	Volumetype string `json:"volumetype"`
 
 	Size int32 `json:"size,omitempty"`

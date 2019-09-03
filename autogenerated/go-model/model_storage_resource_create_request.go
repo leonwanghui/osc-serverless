@@ -11,7 +11,6 @@
 package openapi
 
 type StorageResourceCreateRequest struct {
-
 	CloudProvider CloudProviderInfo `json:"cloud_provider"`
 
 	AvailabilityZone string `json:"availability_zone"`

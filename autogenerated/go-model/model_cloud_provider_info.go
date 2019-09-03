@@ -11,7 +11,6 @@
 package openapi
 
 type CloudProviderInfo struct {
-
 	Name string `json:"name,omitempty"`
 
 	Parameters map[string]interface{} `json:"parameters,omitempty"`

@@ -11,7 +11,6 @@
 package openapi
 
 type FileShareResourceFragment struct {
-
 	ShareServerId string `json:"share_server_id,omitempty"`
 
 	ShareNetworkId string `json:"share_network_id,omitempty"`

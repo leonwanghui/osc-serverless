@@ -11,7 +11,6 @@
 package openapi
 
 type CloudServerResourceFragment struct {
-
 	HostId string `json:"hostId,omitempty"`
 
 	KeyName string `json:"key_name,omitempty"`

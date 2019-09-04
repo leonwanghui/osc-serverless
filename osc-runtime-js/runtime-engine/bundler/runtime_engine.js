@@ -140,6 +140,10 @@ export const __wbindgen_json_serialize = function(arg0, arg1) {
     getInt32Memory()[arg0 / 4 + 1] = ret1;
 };
 
+export const __wbg_log_a00b613c13e28fc4 = function(arg0, arg1) {
+    console.log(getStringFromWasm(arg0, arg1));
+};
+
 export const __wbindgen_json_parse = function(arg0, arg1) {
     const ret = JSON.parse(getStringFromWasm(arg0, arg1));
     return addHeapObject(ret);

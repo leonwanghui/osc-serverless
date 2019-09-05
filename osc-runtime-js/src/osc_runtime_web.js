@@ -1,4 +1,4 @@
-import init, { load_resource_to_js } from "../../runtime-engine/web/runtime_engine.js";
+import init, { load_resource_to_js } from "../web/runtime_engine.js";
 
 init();
 

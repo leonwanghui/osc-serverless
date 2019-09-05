@@ -24,14 +24,14 @@ impl ResourceSpec {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Metadata {
-    pub operation: String,
+    pub operation: Option<String>,
     pub cloud_provider: models::CloudProviderInfo,
-    pub labels: Value,
+    pub labels: Option<Value>,
 }
 
 impl Metadata {
     pub fn get_operation(&self) -> String {
-        self.operation.clone()
+        self.operation.clone().unwrap()
     }
 
     pub fn get_cloud_provider(&self) -> models::CloudProviderInfo {

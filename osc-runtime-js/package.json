@@ -2,9 +2,9 @@
   "name": "osc-runtime",
   "version": "1.0.0",
   "description": "",
-  "main": "src/osc_runtime_web.js",
+  "main": "src/osc_runtime_node.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/osc_runtime_node.js"
   },
   "repository": {
     "type": "git",

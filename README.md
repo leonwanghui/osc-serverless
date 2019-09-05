@@ -1,12 +1,18 @@
 # osc-serverless
+
+[![Releases](https://img.shields.io/github/release/leonwanghui/osc-serverless/all.svg?style=flat-square)](https://github.com/leonwanghui/osc-serverless/releases)
+[![LICENSE](https://img.shields.io/github/license/leonwanghui/osc-serverless.svg?style=flat-square)](https://github.com/leonwanghui/osc-serverless/blob/master/LICENSE)
+
 This is a prototype for osc design with serverless technology.
 
 ## Background
+
 As we all know, public cloud is defacto standard to providing IT infrastructure service for end-users and enterprise customers, and moreover customers tend to build their business platforms on multiple cloud providers at the same time. Considering the widely adoption of public cloud, it's very tempting for those SaaS providers (such like SAP, Oracle, etc) which expect to sell their products as cloud services but without the capability to construct cloud infrastructure by themselves.
 
 Open Service Cloud (OSC for short) project is formulated for public cloud providers as a standard to help SaaS providers build their own cloud services. In this way SaaS providers can achieve their goals by integrating the base of existing cloud infrastructures, which would be a win-win solution for both SaaS providers and public cloud providers.
 
 ## Architecture
+
 High level architecture of the OSC prototype system:
 
 <img src="architecture.JPG" alt="architecture" width="500"/>
@@ -16,6 +22,7 @@ In the short future, the architecture would eventually be designed as below:
 <img src="future.JPG" alt="future" width="500"/>
 
 ## Project status
+
 This project should be considered **experimental** at the very early stage, all rich features are under active development. Here is the current feature support matrix:
 
 | Release or Feature | Introduced | AWS | Azure | GCP | Huaweicloud |
@@ -25,15 +32,18 @@ This project should be considered **experimental** at the very early stage, all 
 | Network            | v0.0.2     | -   | -     | -   | ✔️          |
 
 ## Deployment tutorial
+
 Please notice that currently this project is only tested on Ubuntu system, so `Ubuntu 16.04+` should be prepared as the testing environment.
 
 ### Install system packages
+
 ```shell
 sudo apt-get update && sudo apt-get install -y build-essential gcc cmake libssl-dev pkg-config
 sudo apt-get install -y zip tree
 ```
 
 ### Install Golang (v1.12.1)
+
 ```shell
 wget https://storage.googleapis.com/golang/go1.12.1.linux-amd64.tar.gz
 tar -C /usr/local -zxvf go1.12.1.linux-amd64.tar.gz
@@ -43,9 +53,11 @@ source /etc/profile
 ```
 
 ### Install Rust (latest version)
+
 If you are running Windows, to install Rust, download and run the [RUST-INIT.EXE](https://win.rustup.rs/), and then follow the onscreen instructions.
 
 If you are a Linux user, run the following in your terminal, then follow the on-screen instructions to install Rust.
+
 ```shell
 curl https://sh.rustup.rs -sSf | sh
 ```
@@ -55,6 +67,7 @@ curl https://sh.rustup.rs -sSf | sh
 * Cloud providers (take Huaweicloud for example)
 
 Here is reference configuration of cloud backend (located in `osc-config/config_hwcloud.yaml`):
+
 ```yaml
 identityEndpoint: https://iam.cn-north-1.myhuaweicloud.com
 domain: myhuaweicloud.com
@@ -106,11 +119,13 @@ spec:
 ```
 
 After configure cloud backend and request parameters, please move these configuration files into `/etc/osc-config` folder:
+
 ```shell
 cp -r osc-config/ /etc/
 ```
 
 ### Run service
+
 ```shell
 # build the source code
 cd osc-serverless/ && make
@@ -121,4 +136,11 @@ cd osc-serverless/ && make
 ./build/bin/osc-rt -o create -f /etc/osc-config/osc_request_compute.yaml
 # run osc-runtime to delete compute service
 ./build/bin/osc-rt -o delete -f /etc/osc-config/osc_request_compute.yaml
+```
+
+Or you can run osc-runtime-js script to manage the resource (`npm` and `node` REQUIRED):
+
+```shell
+cd osc-runtime-js && npm install
+npm start
 ```

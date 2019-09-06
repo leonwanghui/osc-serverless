@@ -15,7 +15,7 @@ spec:
     root_volume:
       volumetype: SATA
       size: 40
-    flavorRef: s3.small.1 # 1vCPUs | 1GB
+    flavorRef: t6.small.1 # 1vCPUs | 1GB
     key_name: KeyPair-2e4a
     user_data: "/etc/osc-config/app_install_etcd.sh"
     vpcid: e86bd162-8136-4227-a076-825161c95d29 # vpc-default | 192.168.0.0/16

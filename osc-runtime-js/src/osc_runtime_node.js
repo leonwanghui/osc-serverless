@@ -8,7 +8,6 @@ var data = YAML.load(filename);
 // Set the operation manually to pass the test case.
 data.metadata.operation = 'create';
 var body = engine.load_resource_to_js(data);
-console.log(body);
 
 switch (body.kind) {
   case 'ComputeResource':

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/osc_runtime_node.js",
     "build": "webpack",
-    "serve": "chmod +x ./nginx_config.sh && ./nginx_config.sh"
+    "serve": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "superagent": "^5.1.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0",
     "yamljs": "^0.3.0"
   }
 }

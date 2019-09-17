@@ -11,7 +11,7 @@ module.exports = {
   mode: "development",
   devServer: {
     host: '0.0.0.0',
-    port: 8080,
+    port: 8088,
     proxy: {
       '/v1alpha': 'http://localhost:6106'
     },

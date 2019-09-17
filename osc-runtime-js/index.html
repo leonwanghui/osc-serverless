@@ -68,8 +68,8 @@
             position: absolute;
             top: 50%;
             left: 36%;
-            width: 24em;
-            height: 6em;
+            width: 28em;
+            height: 13em;
             border: 1px solid black;
             word-break: break-all;
             overflow: auto;
@@ -98,8 +98,8 @@
     <script src="src/jquery-1.4.4.min.js"></script>
     <script src="dist/index.js"></script>
     <script type="text/JavaScript">
-        async function run(op, data) { let result = await EntryPoint.load(op, data); document.getElementById('text').innerHTML = result; }; let op, file; $(document).ready(function(){ $('#select').change(function(){ op = $(this).children('option:selected').val();
-        }); $('#input').change(function(){ file = $('#input')[0].files[0]; }); $("#btn").click(function(){ if(file){ let fr = new FileReader(); fr.onload = function(e) { let data = e.target.result; run(op, data); }; fr.readAsText(file); }; }); });
+        let op, file; $(document).ready(function(){ $('#select').change(function(){ op = $(this).children('option:selected').val(); }); $('#input').change(function(){ file = $('#input')[0].files[0]; }); $("#btn").click(function(){ alert('请求已发送！'); if(file){ let
+        fr = new FileReader(); fr.onload = function(e) { let data = e.target.result; EntryPoint.load(op, data); }; fr.readAsText(file); }; }); });
     </script>
 </body>
 

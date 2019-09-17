@@ -62,9 +62,21 @@ If you are a Linux user, run the following in your terminal, then follow the on-
 curl https://sh.rustup.rs -sSf | sh
 ```
 
+### Install npm and node.js (latest version)
+
+```shell
+sudo apt-get install -y npm
+sudo npm install n -g
+sudo n stable
+
+# Check the version of npm and node
+npm -v
+node -v
+```
+
 ### Configuration
 
-* Cloud providers (take Huaweicloud for example)
+* Cloud providers (take `Huaweicloud` for example)
 
 Here is reference configuration of cloud backend (located in `osc-config/config_hwcloud.yaml`):
 
@@ -91,14 +103,14 @@ spec:
   name: newserver
   description: This is a new server for testing
   availability_zone: cn-north-1a # 华北-北京一
-  cloud_provider: # Deprecated, please use cloud_provider in metadata
+  cloud_provider: # Deprecated, please use metadata
     name: huaweicloud
   cloud_server_request_fragment:
     imageRef: f1dd2272-7041-479e-9663-646632b6ac00 # Ubuntu 16.04 server 64bit
     root_volume:
       volumetype: SATA
       size: 40
-    flavorRef: s3.small.1 # 1vCPUs | 1GB
+    flavorRef: t6.small.1 # 1vCPUs | 1GB
     key_name: KeyPair-2e4a
     user_data: "/etc/osc-config/app_install_etcd.sh"
     vpcid: e86bd162-8136-4227-a076-825161c95d29 # vpc-default | 192.168.0.0/16
@@ -142,5 +154,8 @@ Or you can run osc-runtime-js script to manage the resource (`npm` and `node` RE
 
 ```shell
 cd osc-runtime-js && npm install
-npm start
+npm run build
+npm run serve
 ```
+
+Then open the browser and login to `http://{ your_host_ip }:8088` to access the demo.

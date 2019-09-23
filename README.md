@@ -74,6 +74,16 @@ npm -v
 node -v
 ```
 
+### Install wasm-pack tool (for developers)
+
+If you are running Windows 64-bit, download and run [wasm-pack-init.exe](https://github.com/rustwasm/wasm-pack/releases/download/v0.8.1/wasm-pack-init.exe) then follow the onscreen instructions.
+
+If you're a Linux user run the following in your terminal, then follow the onscreen instructions to install `wasm-pack`:
+
+```shell
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+```
+
 ### Configuration
 
 * Cloud providers (take `Huaweicloud` for example)
@@ -150,10 +160,10 @@ cd osc-serverless/ && make
 ./build/bin/osc-rt -o delete -f /etc/osc-config/osc_request_compute.yaml
 ```
 
-Or you can run osc-runtime-js script to manage the resource (`npm` and `node` REQUIRED):
+Or you can run osc-runtime-wasm script to manage the resource (`npm` and `node` REQUIRED):
 
 ```shell
-cd osc-runtime-js && npm install
+cd osc-runtime-wasm/webpack && npm install
 npm run build
 npm run serve
 ```

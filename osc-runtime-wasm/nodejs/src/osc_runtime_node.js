@@ -1,9 +1,9 @@
-const engine = require("../nodejs/runtime_engine");
+const engine = require("../pkg/runtime_engine");
 const req = require("./request");
 const YAML = require('yamljs');
 const path = require('path');
 
-var filename = path.resolve(__dirname, "../../osc-config/osc_request_compute.yaml")
+var filename = path.resolve(__dirname, "../../../osc-config/osc_request_compute.yaml")
 var data = YAML.load(filename);
 // Set the operation manually to pass the test case.
 data.metadata.operation = 'create';

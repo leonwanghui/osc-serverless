@@ -1,5 +1,5 @@
 const rust =
-  import ('../bundler');
+  import ('../pkg');
 import * as YAML from 'yamljs';
 import * as request from 'superagent';
 

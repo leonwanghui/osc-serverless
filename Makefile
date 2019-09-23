@@ -67,7 +67,7 @@ dist: build
 	    mkdir $(BUILD_TGT) && \
 	    cp -r $(BUILD_DIR)/bin $(BUILD_TGT)/ && \
 		cp -r $(BASE_DIR)/osc-config $(BUILD_TGT)/ && \
-		cp -r $(BASE_DIR)/osc-runtime-js $(BUILD_TGT)/ && \
+		cp -r $(BASE_DIR)/osc-runtime-wasm $(BUILD_TGT)/ && \
 	    cp $(BASE_DIR)/LICENSE $(BUILD_TGT)/ && \
 	    zip -r $(DIST_DIR)/$(BUILD_TGT).zip $(BUILD_TGT) && \
 	    tar zcvf $(DIST_DIR)/$(BUILD_TGT).tar.gz $(BUILD_TGT) && \

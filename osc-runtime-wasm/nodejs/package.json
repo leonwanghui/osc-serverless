@@ -4,9 +4,7 @@
   "description": "",
   "main": "src/osc_runtime_node.js",
   "scripts": {
-    "start": "node src/osc_runtime_node.js",
-    "build": "webpack",
-    "serve": "webpack-dev-server"
+    "serve": "node src/osc_runtime_node.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +20,6 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "superagent": "^5.1.0",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8",
-    "webpack-dev-server": "^3.8.0",
     "yamljs": "^0.3.0"
   }
 }

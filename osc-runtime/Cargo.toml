@@ -1,5 +1,5 @@
 [package]
-name = "osc_runtime"
+name = "osc-runtime"
 version = "0.1.0"
 authors = ["leonwanghui <wanghui71leon@gmail.com>"]
 edition = "2018"
